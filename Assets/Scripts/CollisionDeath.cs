@@ -5,8 +5,6 @@ using UnityEngine;
 public class CollisionDeath : MonoBehaviour {
 
     Transform playerLocation;
-    DeathReset dr;
-
 
     // Use this for initialization
     void Start () {
@@ -19,6 +17,9 @@ public class CollisionDeath : MonoBehaviour {
 	}
 
     void OnCollisionEnter(Collision other){
+
+        var dr = new DeathReset();
+
         if (other.gameObject.tag == "bad"){
             dr.respawn(playerLocation);
         }

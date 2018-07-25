@@ -14,6 +14,7 @@ public class CharacterController2D : MonoBehaviour
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
+    private bool canDoubleJump;
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -45,6 +46,7 @@ public class CharacterController2D : MonoBehaviour
 	{
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
+
 
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
@@ -128,15 +130,26 @@ public class CharacterController2D : MonoBehaviour
 		{
 			// Add a vertical force to the player.
 			m_Grounded = false;
+            canDoubleJump = true;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}
+        else
+        {
+            if (canDoubleJump)
+            {
+                Debug.Log("d_jump");
+                canDoubleJump = false;
+                m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
+                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            }
+        }
 	}
 
 
 	private void Flip()
 	{
-		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
+		// Switch the way the player is labelled as facing.
 
 		// Multiply the player's x local scale by -1.
 		Vector3 theScale = transform.localScale;

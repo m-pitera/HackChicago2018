@@ -1,20 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class follow : MonoBehaviour {
+public class follow : MonoBehaviour
+{
+    public Transform target;
+    public float smoothTime = 0.3F;
+    private Vector3 velocity = Vector3.zero;
 
-    public GameObject player;
-
-    private Vector3 offset;
-
-    void Start()
+    void Update()
     {
-        offset = transform.position - player.transform.position;
-    }
+        // Define a target position above and behind the target transform
+        Vector3 targetPosition = target.TransformPoint(new Vector3(0, 1, -6));
 
-    void LateUpdate()
-    {
-        transform.position = player.transform.position + offset;
+        // Smoothly move the camera towards that target position
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 }

@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - bad
+  - scene1Done
+  - scene2Done
+  - scene3Done
   layers:
   - Default
   - TransparentFX
@@ -38,9 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Player
-    uniqueID: 85679557
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 85679557
     locked: 0

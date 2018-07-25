@@ -6,7 +6,6 @@ public class FallDeath : MonoBehaviour {
 
     public Transform playerLocation;
     public int minimumHeight;
-    public DeathReset dr;
 
     // Use this for initialization
     void Start () {
@@ -15,6 +14,8 @@ public class FallDeath : MonoBehaviour {
 
 // Update is called once per frame
     void Update () {
+        var dr = new DeathReset();
+
 		if (playerLocation.position.y <= minimumHeight){
             dr.respawn(playerLocation);
         }

@@ -54,11 +54,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\follow.cs" />
+     <Compile Include="Assets\Scripts\AllDeath.cs" />
      <Compile Include="Assets\Scripts\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\CollisionDeath.cs" />
      <Compile Include="Assets\Scripts\DeathReset.cs" />
+     <Compile Include="Assets\Scripts\DoubleJumpu.cs" />
      <Compile Include="Assets\Scripts\FallDeath.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Transition.cs" />
      <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/mpitera/Desktop/Unity/HackChicago2018/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
